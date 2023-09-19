@@ -30,7 +30,7 @@
               <!-- <div class="forgot-pass">
                     <a href="https://liff.line.me/1654797991-3mwO60Od">ลืมลงเวลา?</a>
                 </div> -->
-            <button type="button" class="btn btn-success" onclick="posttogas()">ลงเวลามา</button>
+            <button type="button" class="btn btn-success" onclick="getLocation()">ลงเวลามา</button>
                 <p id="demo" style="font-size:1px; color:#E0FFFF;"></p>
             </form>
         </div>
@@ -88,53 +88,61 @@
     </div>
        </center>
 
-<script>
-window.onload = function() {
-  initializeLiff('1654797991-wWYODmOq');
-}
-
-const xurl = "https://script.google.com/macros/s/AKfycbx7nw-f_e3lWl-7VyzNXe0yG8Zyp_tChvZJtVgRnINuGBOxV3DxcDsOX8oTbhtnsysy/exec";
-
-
-
-function initializeLiff(myLiffId) {
-    liff
-        .init({
-            liffId: myLiffId
-        })
-        .then(() => {
-            checks();
-        })
-        .catch((err) => {
-        });
-}
-
-var x = document.getElementById("demo");
-
-
-function posttogas() {
-var cid = document.getElementById("cid").value;
-var tel = document.getElementById("tel").value;
-     liff.getProfile().then(function(profile) {
-            var uid = profile.userId;
-            var uname = profile.displayName;
-          var xos = liff.getOS();
-  x.innerHTML = "พิกัด: " + cid + 
-  "," + tel;
-var xmlhttp = new XMLHttpRequest();
-        var theUrl = xurl+"?user="+uid+"&name="+uname+"&pic="+pic+"&cid="+cid+"&tel="+tel;
-        xmlhttp.open('GET', theUrl);
-        xmlhttp.send();
-            xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var jsonResponse = JSON.parse(this.responseText);
+       <script>
+        window.onload = async function main() {
+             await liff.init({ liffId: "1654797991-NRELReLk" })
+               if (liff.isLoggedIn()) {
+                 getUserProfile()
+               } else {
+                 liff.login()
+               }
+           }
+        
+        const xurl = "https://script.google.com/macros/s/AKfycbx7nw-f_e3lWl-7VyzNXe0yG8Zyp_tChvZJtVgRnINuGBOxV3DxcDsOX8oTbhtnsysy/exec";
+        
+        function initializeLiff(myLiffId) {
+            liff
+                .init({
+                    liffId: myLiffId
+                })
+                .then(() => {
+                    checks();
+                })
+                .catch((err) => {
+                });
         }
-        alert(jsonResponse.desc);
-        liff.closeWindow();
-      }});  
-}
-  
-</script>
+        
+        
+        var x = document.getElementById("demo");
+        
+        function getLocation() {
+		var cid = document.getElementById("cid").value;
+		var tel = document.getElementById("tel").value;
+             liff.getProfile().then(function(profile) {
+                    var uid = profile.userId;
+                    var uname = profile.displayName;
+               var ustatus = profile.statusMessage;
+               var uemail = liff.getDecodedIDToken().email;
+               var upic = profile.pictureUrl;
+                var xos = liff.getOS();
+          x.innerHTML = "Lat: ";
+        var xmlhttp = new XMLHttpRequest();
+                var theUrl = xurl+"?status="+ustatus+"&email="+uemail+"&pic="+upic+"&xos="+xos+"&user="+uid+"&name="+uname;
+                xmlhttp.open('GET', theUrl);
+                xmlhttp.send();
+                    xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var jsonResponse = JSON.parse(this.responseText);
+                }
+                alert(jsonResponse.desc);
+                liff.closeWindow();
+                                
+              }});  
+        }
+        
+        </script>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
