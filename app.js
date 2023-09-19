@@ -1,5 +1,8 @@
-async function getProfile() {
+async function loadind() {
     document.getElementById("loading").style.display = "block";
+}
+
+async function getProfile() {
      let cid = document.getElementById("cid").value;
      const profile = await liff.getProfile()
    
