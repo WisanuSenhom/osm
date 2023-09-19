@@ -24,21 +24,10 @@ async function getProfile() {
           อายุ ${user.age}
           </ul>
           <ul class="list-group list-group-flush">
-            <a href="${user.ncd}" class="btn btn-primary" type="button">${user.linktxt}</a>
-
-           </ul>
-           <ul class="list-group list-group-flush">
-          
-           <a href="${user.adl}" class="btn btn-success" type="button">ประเมินความสามารถในการทำกิจวัตรประจำวัน ADL</a>
-
-          </ul>
-          <ul class="list-group list-group-flush">
-        
-          <a href="${user.qq}" class="btn btn-primary" type="button">ประเมินโรคซึมเศร้า 2Q,9Q</a>
-       
-         </ul>
-         <ul class="list-group list-group-flush">
-         <a href="${user.ncdplus}" class="btn btn-success" type="button">ประเมินภาวะสุขภาพกาย สุขภาพจิต</a>
+            <a href="${user.ncd}" class="list-group-item list-group-item-action list-group-item-primary" type="button">${user.linktxt}</a>          
+           <a href="${user.adl}" class="list-group-item list-group-item-action list-group-item-success" type="button">ประเมินความสามารถในการทำกิจวัตรประจำวัน ADL</a>        
+          <a href="${user.qq}" class="list-group-item list-group-item-action list-group-item-warning" type="button">ประเมินโรคซึมเศร้า 2Q,9Q</a>    
+         <a href="${user.ncdplus}" class="list-group-item list-group-item-action list-group-item-info" type="button">ประเมินภาวะสุขภาพกาย สุขภาพจิต</a>
         </ul>
    
         </div>    
