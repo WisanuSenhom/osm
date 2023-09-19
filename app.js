@@ -29,16 +29,16 @@ async function getProfile() {
            </ul>
            <ul class="list-group list-group-flush">
           
-           <a href="${user.adl}" class="btn btn-success" type="button">คัดกรองภาวะพึ่งพิง ADL</a>
+           <a href="${user.adl}" class="btn btn-success" type="button">ประเมินความสามารถในการทำกิจวัตรประจำวัน ADL</a>
 
           </ul>
           <ul class="list-group list-group-flush">
         
-          <a href="${user.qq}" class="btn btn-primary" type="button">คัดกรองโรคซึมเศร้า</a>
+          <a href="${user.qq}" class="btn btn-primary" type="button">ประเมินโรคซึมเศร้า 2Q,9Q</a>
        
          </ul>
          <ul class="list-group list-group-flush">
-         <a href="${user.ncdplus}" class="btn btn-success" type="button">คัดกรองสุขภาพกาย สุขภาพจิต</a>
+         <a href="${user.ncdplus}" class="btn btn-success" type="button">ประเมินภาวะสุขภาพกาย สุขภาพจิต</a>
         </ul>
    
         </div>    
