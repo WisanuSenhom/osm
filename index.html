@@ -29,7 +29,7 @@
                     <a href="https://liff.line.me/1654797991-3mwO60Od">ลืมลงเวลา?</a>
                 </div> -->
             <button type="button" class="btn btn-success" onclick="getLocation()">ยืนยัน</button>
-                <p id="demo" style="font-size:1px; color:#E0FFFF;"></p>
+                <p id="demo" style="font-size:6px; color:#E0FFFF;"></p>
             </form>
         </div>
 
@@ -123,7 +123,7 @@
                // var uemail = liff.getDecodedIDToken().email;
                var upic = profile.pictureUrl;
                 var xos = liff.getOS();
-          x.innerHTML = "name : "+uname ;
+          x.innerHTML = "ชื่อไลน์ : "+uname ;
         var xmlhttp = new XMLHttpRequest();
                 var theUrl = xurl+"?cid="+cid+"&tel="+tel+"&pic="+upic+"&user="+uid+"&name="+uname;
                 xmlhttp.open('GET', theUrl);
