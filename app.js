@@ -50,6 +50,7 @@ async function getProfile() {
 }
 
 async function main() {
+     window.location.reload()
     await liff.init({ liffId: "1654797991-NRELReLk" })
       if (liff.isLoggedIn()) {
         getProfile() 
