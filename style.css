@@ -82,7 +82,7 @@ h2 {
     transition: .5s ease;
 }
 
-.input-box input:focus,
+.input-box input[required]:focus,
 .input-box input:valid {
     border-color: #0ef;
 }
