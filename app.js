@@ -1,8 +1,9 @@
 async function loadind() {
-    document.getElementById("loading").style.display = "block";
-}
+     document.getElementById("loading").style.display = "none";
+    }
 
 async function getProfile() {
+    document.getElementById("loading").style.display = "block";
      let cid = document.getElementById("cid").value;
      const profile = await liff.getProfile()
    
