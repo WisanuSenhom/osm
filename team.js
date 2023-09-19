@@ -10,12 +10,12 @@ async function getProfile() {
     data.user.forEach(function (user) {
         
           tab += `<tr>
-          <td>${user.pic}</td>
+          <td> <img src="${user.pic}" style="width:50px;height:50px;border-radius:50%" alt="${user.pic}"></td>
             <td>${user.pname}</td>
             <td>${user.fname}</td>
             <td>${user.lname}</td>
             <td>${user.position}</td>
-            <td>${user.tel}</td>
+            <td><a href="tel:${user.tel}">${user.tel}</a></td>
             <td>${user.ban}</td>
             <td>${user.moo}</td>
    
