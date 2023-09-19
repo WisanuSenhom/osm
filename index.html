@@ -15,7 +15,7 @@
  <div class="container">
         <div class="login-box">
             <h2>ลงทะเบียนยืนยันตัวตน</h2>
-           <form>
+           <form class="needs-validation" novalidate="" autocomplete="on">
               <div class="input-box">
                 <input  id="cid" name="cid" type="text" placeholder="กรอกเลขบัตร 13 หลัก"  pattern="[0-9]{13}"  required="true" autofocus>
                 <label>บัตรประจำตัวประชาชน</label>
@@ -85,8 +85,10 @@
         <span style="--i:49;"></span>
     </div>
        </center>
-
+	  
+	<script src="login.js"></script>
        <script>
+	       
         window.onload = async function main() {
              await liff.init({ liffId: "1654797991-NRELReLk" })
                if (liff.isLoggedIn()) {
