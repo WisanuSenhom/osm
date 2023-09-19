@@ -1,4 +1,4 @@
-async function loadind() {
+async function loading(){
      document.getElementById("loading").style.display = "none";
     }
 
