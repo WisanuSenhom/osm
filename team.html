@@ -1,72 +1,84 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.83.1">
-    <title>Team Work</title>
-    <link rel="icon" href="#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ห้องน้ำ</title>
+       
+</head>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+<body onload="main()">
+    <div class="container-fluid">
+        <h3>บันทึกทำความสะอาดห้องน้ำ</h3>
 
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    
-  </head>
-  <body onload="main()">
-    
-<header>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-          <strong>Team Work</strong>
-      </a>
-        </div>
-  </div>
-</header>
-<main class="bg-dark">
- <div class="album py-5 bg-dark">
-    <div class="container">
+        <table class="table table-striped" id="userTable">
+            <thead>
+                  <th>วันที่</th>
+                 <th>หน่วยงาน</th>
+                <th>ห้อง</th>
+                <th>ช่วง</th>
+                <th>คะแนน</th>
+                 <th>พื้น</th>
+                <th>ผนัง,เพดาน</th>
+                <th>โถส้วม,โถปัสสาวะ</th>
+                <th>สายฉีดชำระ,ขัน,อ่างน้ำ</th>
+                <th>อ่าง,ก๊อก</th>
+                <th>กระจก</th>
+                <th>ถังขยะ</th>
+                <th>สบู่เหลว</th>
+                <th>ทิชชู/ผ้าเช็ดมือ</th>
+                <th>เพิ่มเติม</th>
+                <th>ผู้ทำความสะอาด</th>
+                <th>dupdate</th>
+            </thead>
+            <tbody id="tbody">
+               
+            <!-- <thead>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Work</th>
+                <th>Datein</th>
+                <th>Dateout</th>
+                <th>Distance</th>
+                <th>Note</th>
+               
+            </thead> -->
+        </table>
         <div id="loading">
             <img src="https://media.tenor.com/XK37GfbV0g8AAAAi/loading-cargando.gif" style="display: block; margin: 0 auto;">
           </div>
-      <div id="output" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-      </div>
     </div>
-  </div>
-
-</main>
-
-<footer class="text-muted py-5 bg-dark">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    
-</footer>
-
+ 
+    <script src="toiletTable.js"></script>
     <script src="https://static.line-scdn.net/liff/edge/2.1/liff.js"></script>
-    <script src="team.js"></script>
+<!-------------------------------- CDN's css-------------------------------------->
 
-      
-  </body>
+<!-- Bootstrap & fontawesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" />
+<!-- Datatable css -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/autofill/2.3.0/css/autoFill.dataTables.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.5/css/fixedColumns.dataTables.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.dataTables.min.css" />
+<!-------------------------------- CDN's js-------------------------------------->
+<!-- Boostrap & fontawesome js-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Datatable js -->
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/autofill/2.3.0/js/dataTables.autoFill.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.5/js/dataTables.fixedColumns.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/scroller/2.0.0/js/dataTables.scroller.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script> 
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script> 
+</body>
 </html>
