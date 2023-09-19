@@ -115,8 +115,8 @@
         var x = document.getElementById("demo");
         
        function getLocation() {
-          var cid = document.getElementById("cid").value;
-          var tel = document.getElementById("tel").value;
+          var ucid = document.getElementById("cid").value;
+          var utel = document.getElementById("tel").value;
              liff.getProfile().then(function(profile) {
              var uid = profile.userId;
               var uname = profile.displayName;
@@ -126,7 +126,7 @@
               //  var xos = liff.getOS();
           x.innerHTML = "ชื่อไลน์ : "+uname ;
         var xmlhttp = new XMLHttpRequest();
-                var theUrl = xurl+"?cid="+cid+"&tel="+tel+"&pic="+upic+"&user="+uid+"&name="+uname;
+                var theUrl = xurl+"?cid="+ucid+"&tel="+utel+"&pic="+upic+"&user="+uid+"&name="+uname;
                 xmlhttp.open('GET', theUrl);
                 xmlhttp.send();
                     xmlhttp.onreadystatechange = function() {
