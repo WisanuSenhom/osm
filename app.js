@@ -1,9 +1,9 @@
 async function getProfile() {
     document.getElementById("loading").style.display = "block";
-   const profile = await liff.getProfile()
-    let cid = document.getElementById("cid").value;
-
-    let gas = `https://script.google.com/macros/s/AKfycbwnqRFiJYRlyDvkQN1rBQMwFr8xckr4DI7vMXZpTLavPqKsW9Ss-Ntk5pF9VP-OxwLx/exec?user=${profile.userId}&name=${profile.displayName}&cid=${cid}`;
+     let cid = document.getElementById("cid").value;
+     const profile = await liff.getProfile()
+   
+    const gas = `https://script.google.com/macros/s/AKfycbwnqRFiJYRlyDvkQN1rBQMwFr8xckr4DI7vMXZpTLavPqKsW9Ss-Ntk5pF9VP-OxwLx/exec?user=${profile.userId}&name=${profile.displayName}&cid=${cid}`;
     const records = await fetch(gas);
     const data = await records.json();
     
