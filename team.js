@@ -10,7 +10,7 @@ async function getProfile() {
     data.user.forEach(function (user) {
         
           tab += `<tr>
-          <td> <img src="${user.pic}" style="width:50px;height:50px;border-radius:50%" alt="${user.pic}"></td>
+          
             <td>${user.pname}</td>
             <td>${user.fname}</td>
             <td>${user.lname}</td>
@@ -28,7 +28,7 @@ async function getProfile() {
     $('#userTable').DataTable({
         "data": data.user,
         "columns": [
-            { "data": 'pic' },
+         
             { "data": 'pname' },
             { "data": 'fname' },
             { "data": 'lname' },
