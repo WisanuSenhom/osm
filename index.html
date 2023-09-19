@@ -113,18 +113,19 @@
         
         var x = document.getElementById("demo");
         
-        function getLocation() {
-
+       function getLocation() {
+          var cid = document.getElementById("cid").value;
+          var tel = document.getElementById("tel").value;
              liff.getProfile().then(function(profile) {
-                    var uid = profile.userId;
-                    var uname = profile.displayName;
+             var uid = profile.userId;
+              var uname = profile.displayName;
                var ustatus = profile.statusMessage;
-               var uemail = liff.getDecodedIDToken().email;
+               // var uemail = liff.getDecodedIDToken().email;
                var upic = profile.pictureUrl;
                 var xos = liff.getOS();
-          x.innerHTML = "Lat: ";
+          x.innerHTML = "name : "+uname ;
         var xmlhttp = new XMLHttpRequest();
-                var theUrl = xurl+"?status="+ustatus+"&email="+uemail+"&pic="+upic+"&xos="+xos+"&user="+uid+"&name="+uname;
+                var theUrl = xurl+"?cid="+cid+"&tel="+tel+"&pic="+upic+"&user="+uid+"&name="+uname;
                 xmlhttp.open('GET', theUrl);
                 xmlhttp.send();
                     xmlhttp.onreadystatechange = function() {
