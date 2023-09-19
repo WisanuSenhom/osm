@@ -42,7 +42,7 @@ async function getProfile() {
       });
      
       document.getElementById('output').innerHTML = output; 
-
+        document.getElementById("loading").style.display = "none";
 }
 
 async function main() {
