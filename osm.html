@@ -116,7 +116,58 @@
         
        function getLocation() {
           var ucid = document.getElementById("cid").value;
+	     // ตรวจสอบความยาวของรหัส PIN
+        if (ucid.length !== 13) {
+          //alert("เลขบัตรประจำตัวประชาชน ต้องยาว 13 หลัก");
+          Swal.fire(
+            "ผิดพลาด!",
+            "เลขบัตรประจำตัวประชาชน ต้องยาว 13 หลัก!",
+            "error"
+          );
+          document.getElementById("loading").style.display = "none";
+
+          return;
+        }
+
+        // ตรวจสอบว่ารหัส PIN ประกอบด้วยตัวเลขเท่านั้น
+        for (const char of ucid) {
+          if (!/[0-9]/.test(char)) {
+            // alert("เลขบัตรประจำตัวประชาชน ต้องเป็นตัวเลขเท่านั้น");
+            Swal.fire(
+              "ผิดพลาด!",
+              "เลขบัตรประจำตัวประชาชน ต้องเป็นตัวเลขเท่านั้น!",
+              "error"
+            );
+            document.getElementById("loading").style.display = "none";
+            return;
+          }
+        }  
           var utel = document.getElementById("tels").value;
+	       if (utel.length !== 10) {
+          //alert("เบอร์โทร ต้องยาว 10 หลัก");
+          Swal.fire(
+            "ผิดพลาด!",
+            "เบอร์โทร ต้องยาว 10 หลัก!",
+            "error"
+          );
+          document.getElementById("loading").style.display = "none";
+
+          return;
+        }
+
+        // ตรวจสอบว่ารหัส PIN ประกอบด้วยตัวเลขเท่านั้น
+        for (const char of utel) {
+          if (!/[0-9]/.test(char)) {
+            // alert("เบอร์โทร ต้องเป็นตัวเลขเท่านั้น");
+            Swal.fire(
+              "ผิดพลาด!",
+              "เบอร์โทร ต้องเป็นตัวเลขเท่านั้น!",
+              "error"
+            );
+            document.getElementById("loading").style.display = "none";
+            return;
+          }
+        }
              liff.getProfile().then(function(profile) {
              var uid = profile.userId;
               var uname = profile.displayName;
