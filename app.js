@@ -24,6 +24,17 @@ async function getProfile() {
     const gas = `https://script.google.com/macros/s/AKfycbwnqRFiJYRlyDvkQN1rBQMwFr8xckr4DI7vMXZpTLavPqKsW9Ss-Ntk5pF9VP-OxwLx/exec?user=${profile.userId}&name=${profile.displayName}&cid=${cid}`;
     const records = await fetch(gas);
     const data = await records.json();
+
+         // ตรวจสอบว่าพบข้อมูลหรือไม่
+  if (data.user === null || data.user === undefined ||data.user == 0 ) {
+    // ไม่พบข้อมูล
+    alert("ไม่พบข้อมูล กรุณาแจ้ง จนท. เพื่อเพิ่มข้อมูลในระบบ");
+  } else {
+    // พบข้อมูล
+    // ใช้ข้อมูลใน JSON object
+    // console.log(data);
+   
+  }
     
     let output = '';
  
