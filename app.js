@@ -26,8 +26,9 @@ async function getProfile() {
       'เลขบัตรประจำตัวประชาชน ต้องเป็นตัวเลขเท่านั้น!',
       'error'
     );
-      return;
          document.getElementById("loading").style.display = "none";
+      return;
+         
     }
   }
      
