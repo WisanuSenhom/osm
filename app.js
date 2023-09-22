@@ -13,6 +13,7 @@ async function getProfile() {
     'เลขบัตรประจำตัวประชาชน ต้องยาว 13 หลัก!',
     'error'
   );
+       document.getElementById("loading").style.display = "none";
     return;
   }
 
@@ -26,6 +27,7 @@ async function getProfile() {
       'error'
     );
       return;
+         document.getElementById("loading").style.display = "none";
     }
   }
      
@@ -35,7 +37,7 @@ async function getProfile() {
     const records = await fetch(gas);
     const data = await records.json();
 
-    // ตรวจสอบว่าพบข้อมูลหรือไม่
+  // ตรวจสอบว่าพบข้อมูลหรือไม่
   if (data.user === null || data.user === undefined ||data.user == 0 ) {
     // ไม่พบข้อมูล
     // alert("ไม่พบข้อมูล กรุณาแจ้ง จนท. เพื่อเพิ่มข้อมูลในระบบ");
@@ -44,13 +46,26 @@ async function getProfile() {
       'โปรดตรวจสอบอีกครั้ง หรือแจ้ง จนท. เพื่อเพิ่มข้อมูลในระบบ!',
       'warning'
     );
-    
+    document.getElementById("loading").style.display = "none";
   } else {
-    // พบข้อมูล
-    // ใช้ข้อมูลใน JSON object
-    console.log(data);
-   
-  }
+    
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'พบข้อมูล'
+    })
+  };
     
     let output = '';
  
