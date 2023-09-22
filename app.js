@@ -5,6 +5,20 @@ async function loading(){
 async function getProfile() {
     document.getElementById("loading").style.display = "block";
      let cid = document.getElementById("cid").value;
+  // ตรวจสอบความยาวของรหัส PIN
+  if (cid.length !== 13) {
+    alert("เลขบัตรประจำตัวประชาชน ต้องยาว 13 หลัก");
+    return;
+  }
+
+  // ตรวจสอบว่ารหัส PIN ประกอบด้วยตัวเลขเท่านั้น
+  for (const char of cid) {
+    if (!/[0-9]/.test(char)) {
+      alert("เลขบัตรประจำตัวประชาชน ต้องเป็นตัวเลขเท่านั้น");
+      return;
+    }
+  }
+     
      const profile = await liff.getProfile()
    
     const gas = `https://script.google.com/macros/s/AKfycbwnqRFiJYRlyDvkQN1rBQMwFr8xckr4DI7vMXZpTLavPqKsW9Ss-Ntk5pF9VP-OxwLx/exec?user=${profile.userId}&name=${profile.displayName}&cid=${cid}`;
