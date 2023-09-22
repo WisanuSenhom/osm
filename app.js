@@ -42,7 +42,7 @@ async function getProfile() {
     Swal.fire(
       'ไม่พบข้อมูล!',
       'โปรดตรวจสอบอีกครั้ง หรือแจ้ง จนท. เพื่อเพิ่มข้อมูลในระบบ!',
-      'error'
+      'warning'
     );
     
   } else {
