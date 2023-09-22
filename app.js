@@ -40,13 +40,31 @@ async function getProfile() {
 
   // ตรวจสอบว่าพบข้อมูลหรือไม่
   if (data.user === null || data.user === undefined ||data.user == 0 ) {
-    // ไม่พบข้อมูล
-    // alert("ไม่พบข้อมูล กรุณาแจ้ง จนท. เพื่อเพิ่มข้อมูลในระบบ");
-    Swal.fire(
-      'ไม่พบข้อมูล!',
-      'โปรดตรวจสอบอีกครั้ง หรือแจ้ง จนท. เพื่อเพิ่มข้อมูลในระบบ!',
-      'warning'
-    );
+let timerInterval
+    Swal.fire({
+      icon: 'warning',
+      title: 'ไม่พบข้อมูล!\nโปรดตรวจสอบ!\nหรือแจ้ง จนท. เพื่อเพิ่มข้อมูลในระบบ!',
+      html: 'กำลังรีเฟชรข้อมูลในอีก <b></b> มิลลิวินาที',
+      timer: 10000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading()
+        const b = Swal.getHtmlContainer().querySelector('b')
+        timerInterval = setInterval(() => {
+          b.textContent = Swal.getTimerLeft()
+        }, 100)
+      },
+      willClose: () => {
+        clearInterval(timerInterval)
+      }
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        location.reload();
+       // console.log('I was closed by the timer')
+      }
+    });
+       
     document.getElementById("loading").style.display = "none";
   } else {
     
