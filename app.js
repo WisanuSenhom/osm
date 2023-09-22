@@ -7,14 +7,24 @@ async function getProfile() {
      let cid = document.getElementById("cid").value;
   // ตรวจสอบความยาวของรหัส PIN
   if (cid.length !== 13) {
-    alert("เลขบัตรประจำตัวประชาชน ต้องยาว 13 หลัก");
+     //alert("เลขบัตรประจำตัวประชาชน ต้องยาว 13 หลัก");
+  Swal.fire(
+    'ผิดพลาด!',
+    'เลขบัตรประจำตัวประชาชน ต้องยาว 13 หลัก!',
+    'error'
+  );
     return;
   }
 
   // ตรวจสอบว่ารหัส PIN ประกอบด้วยตัวเลขเท่านั้น
   for (const char of cid) {
     if (!/[0-9]/.test(char)) {
-      alert("เลขบัตรประจำตัวประชาชน ต้องเป็นตัวเลขเท่านั้น");
+      // alert("เลขบัตรประจำตัวประชาชน ต้องเป็นตัวเลขเท่านั้น");
+    Swal.fire(
+      'ผิดพลาด!',
+      'เลขบัตรประจำตัวประชาชน ต้องเป็นตัวเลขเท่านั้น!',
+      'error'
+    );
       return;
     }
   }
@@ -25,14 +35,20 @@ async function getProfile() {
     const records = await fetch(gas);
     const data = await records.json();
 
-         // ตรวจสอบว่าพบข้อมูลหรือไม่
+    // ตรวจสอบว่าพบข้อมูลหรือไม่
   if (data.user === null || data.user === undefined ||data.user == 0 ) {
     // ไม่พบข้อมูล
-    alert("ไม่พบข้อมูล กรุณาแจ้ง จนท. เพื่อเพิ่มข้อมูลในระบบ");
+    // alert("ไม่พบข้อมูล กรุณาแจ้ง จนท. เพื่อเพิ่มข้อมูลในระบบ");
+    Swal.fire(
+      'ไม่พบข้อมูล!',
+      'โปรดตรวจสอบอีกครั้ง หรือแจ้ง จนท. เพื่อเพิ่มข้อมูลในระบบ!',
+      'error'
+    );
+    
   } else {
     // พบข้อมูล
     // ใช้ข้อมูลใน JSON object
-    // console.log(data);
+    console.log(data);
    
   }
     
