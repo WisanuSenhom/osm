@@ -103,3 +103,7 @@ async function main() {
       }
   }
   main()
+
+function reload(){
+  location.reload();
+}
