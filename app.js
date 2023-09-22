@@ -106,5 +106,28 @@ async function main() {
   main()
 
 function reload(){
-  location.reload();
+  let timerInterval
+Swal.fire({
+  title: 'กำลังเคลียร์ข้อมูล!',
+  html: 'ในอีก <b></b> มิลลิวินาที',
+  timer: 2000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    location.reload();
+    console.log('I was closed by the timer')
+  }
+});
+ 
 }
