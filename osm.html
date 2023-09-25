@@ -97,7 +97,7 @@
                }
            }
         
-        const xurl = "https://script.google.com/macros/s/AKfycbx7nw-f_e3lWl-7VyzNXe0yG8Zyp_tChvZJtVgRnINuGBOxV3DxcDsOX8oTbhtnsysy/exec";
+        const xurl = "https://script.google.com/macros/s/AKfycbx0sSuIS3H5JWC7SnYHUMB4Wi292IpIP6ychm60EmtIdKy4UNwPYDVNvbMYYBDu9ds/exec";
         
         function initializeLiff(myLiffId) {
             liff
@@ -183,9 +183,68 @@
                     xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     var jsonResponse = JSON.parse(this.responseText);
+			if (jsonResponse.desc == 'c' ){
+            Swal.fire(
+    'ผิดพลาด! ไม่พบเลขบัตรประจำตัวประชาชนของท่านในระบบ',
+    'หากท่าน เป็น อสม. หรือ เจ้าหน้าที่ ปฏิบัติงานจริง ให้ติดต่อเจ้าหน้าที่ รพ.สต.หนองทุ่ม!',
+    'error'
+  );
+          };
+          if(jsonResponse.desc == 'b' ){
+            let timerInterval
+    Swal.fire({
+      icon: 'success',
+      title: 'ยืนยันตัวตนสำเร็จ',
+      html: 'กำลังเปลี่ยนไปหน้าคัดกรองในอีก <b></b> มิลลิวินาที',
+      timer: 5000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading()
+        const b = Swal.getHtmlContainer().querySelector('b')
+        timerInterval = setInterval(() => {
+          b.textContent = Swal.getTimerLeft()
+        }, 100)
+      },
+      willClose: () => {
+        clearInterval(timerInterval)
+      }
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        location.replace("https://liff.line.me/1654797991-NRELReLk");
+       // console.log('I was closed by the timer')
+      }
+    });
+          };
+          if(jsonResponse.desc == 'a' ){
+            let timerInterval
+    Swal.fire({
+      icon: 'info',
+      title: 'ท่านยืนยันตัวตนแล้ว',
+      html: 'กำลังเปลี่ยนไปหน้าคัดกรองในอีก <b></b> มิลลิวินาที',
+      timer: 5000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading()
+        const b = Swal.getHtmlContainer().querySelector('b')
+        timerInterval = setInterval(() => {
+          b.textContent = Swal.getTimerLeft()
+        }, 100)
+      },
+      willClose: () => {
+        clearInterval(timerInterval)
+      }
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        location.replace("https://liff.line.me/1654797991-NRELReLk");
+       // console.log('I was closed by the timer')
+      }
+    });
+          };
+        }
                 }
-                alert(jsonResponse.desc);
-                liff.closeWindow();
+           
                                 
               }});  
         }
