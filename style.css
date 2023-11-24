@@ -8,7 +8,7 @@
 }
 
 body {
-    display: flex;
+   display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-    position: relative;
+    position: fixed;
     width: 256px;
     height: 256px;
     display: flex;
