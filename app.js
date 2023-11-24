@@ -103,6 +103,7 @@ let timerInterval
            <a href="${user.adl}" class="list-group-item list-group-item-action list-group-item-success" type="button"><h2>ประเมินความสามารถในการทำกิจวัตรประจำวัน ADL</h2></a>        
           <a href="${user.qq}" class="list-group-item list-group-item-action list-group-item-warning" type="button"><h2>ประเมินโรคซึมเศร้า 2Q,9Q</h2></a>    
          <a href="${user.ncdplus}" class="list-group-item list-group-item-action list-group-item-info" type="button"><h2>ประเมินภาวะสุขภาพกาย สุขภาพจิต</h2></a>
+        <a href="${user.dental}" class="list-group-item list-group-item-action list-group-item-light" type="button"><h2>ตรวจสุขภาพช่องปาก</h2></a>
         </ul>
    
         </div>    
